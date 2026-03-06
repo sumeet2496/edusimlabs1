@@ -1,0 +1,13 @@
+steps:
+- name: 'gcr.io/k8s-skaffold/pack'
+  args:
+  - 'build'
+  - '--path'
+  - 'main'
+  - '--builder'
+  - 'paketobuildpacks/builder:base'
+  - '--env'
+  - 'BP_NODE_RUN_SCRIPTS=build'
+  - 'gcr.io/$PROJECT_ID/edusimlabs:$COMMIT_SHA'
+images:
+- 'gcr.io/$PROJECT_ID/edusimlabs:$COMMIT_SHA'

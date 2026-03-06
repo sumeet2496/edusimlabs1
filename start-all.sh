@@ -14,16 +14,16 @@ run_project() {
 }
 
 # 1. Main Website
-run_project "/Users/sumeetsuryawanshi/Documents/Simulations Main/copy-of-main (1)" 5173 "Main Website"
+run_project "./main" 5173 "Main Website"
 
 # 2. FX Forward Terminal
-run_project "/Users/sumeetsuryawanshi/Documents/Simulations Main/copy-of-fx-forward-terminal---simulator (1)" 5174 "FX Forward Terminal"
+run_project "./copy-of-fx-forward-terminal---simulator (1)" 5174 "FX Forward Terminal"
 
 # 3. Multiplayer Boardroom
-run_project "/Users/sumeetsuryawanshi/Documents/Simulations Main/copy-of-multiplayer-boardroom_-global-capital" 5175 "Multiplayer Boardroom"
+run_project "./copy-of-multiplayer-boardroom_-global-capital" 5175 "Multiplayer Boardroom"
 
 # 4. FICC Trademaster Pro
-run_project "/Users/sumeetsuryawanshi/Documents/Simulations Main/ficc-trademaster-pro-architecture-&-sim (1)" 5176 "FICC Trademaster Pro"
+run_project "./ficc-trademaster-pro-architecture-&-sim (1)" 5176 "FICC Trademaster Pro"
 
 echo "All simulations initializing. Access Main Website at http://localhost:5173"
 wait
