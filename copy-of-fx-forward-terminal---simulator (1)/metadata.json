@@ -1,0 +1,5 @@
+{
+  "name": "Copy of FX Forward Terminal - Simulator",
+  "description": "A high-fidelity bank trading terminal for learning FX forward contracts, featuring a stochastic market engine and client-driven hedging scenarios.",
+  "requestFramePermissions": []
+}

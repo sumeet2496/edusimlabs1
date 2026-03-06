@@ -1,0 +1,5 @@
+{
+  "name": "FICC-TradeMaster Pro Architecture & Sim",
+  "description": "A comprehensive Bloomberg-style international finance trading simulation with a real-time market engine, pricing/risk analytics, and exhaustive architectural documentation.",
+  "requestFramePermissions": []
+}
