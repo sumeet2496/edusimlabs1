@@ -1,4 +1,5 @@
 steps:
+# Build main website
 - name: 'gcr.io/k8s-skaffold/pack'
   args:
   - 'build'
@@ -8,6 +9,102 @@ steps:
   - 'paketobuildpacks/builder:base'
   - '--env'
   - 'BP_NODE_RUN_SCRIPTS=build'
-  - 'gcr.io/$PROJECT_ID/edusimlabs:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/edusimlabs-main:$COMMIT_SHA'
+
+# Build FX Forward Terminal
+- name: 'gcr.io/k8s-skaffold/pack'
+  args:
+  - 'build'
+  - '--path'
+  - 'fx-forward-terminal'
+  - '--builder'
+  - 'paketobuildpacks/builder:base'
+  - '--env'
+  - 'BP_NODE_RUN_SCRIPTS=build'
+  - 'gcr.io/$PROJECT_ID/edusimlabs-fx-forward:$COMMIT_SHA'
+
+# Build Multiplayer Boardroom
+- name: 'gcr.io/k8s-skaffold/pack'
+  args:
+  - 'build'
+  - '--path'
+  - 'multiplayer-boardroom'
+  - '--builder'
+  - 'paketobuildpacks/builder:base'
+  - '--env'
+  - 'BP_NODE_RUN_SCRIPTS=build'
+  - 'gcr.io/$PROJECT_ID/edusimlabs-boardroom:$COMMIT_SHA'
+
+# Build FICC Trademaster Pro
+- name: 'gcr.io/k8s-skaffold/pack'
+  args:
+  - 'build'
+  - '--path'
+  - 'ficc-trademaster-pro'
+  - '--builder'
+  - 'paketobuildpacks/builder:base'
+  - '--env'
+  - 'BP_NODE_RUN_SCRIPTS=build'
+  - 'gcr.io/$PROJECT_ID/edusimlabs-trademaster:$COMMIT_SHA'
+
+# Deploy main website to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'run'
+  - 'deploy'
+  - 'edusimlabs-main'
+  - '--image'
+  - 'gcr.io/$PROJECT_ID/edusimlabs-main:$COMMIT_SHA'
+  - '--region'
+  - 'us-central1'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
+
+# Deploy FX Forward Terminal to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'run'
+  - 'deploy'
+  - 'edusimlabs-fx-forward'
+  - '--image'
+  - 'gcr.io/$PROJECT_ID/edusimlabs-fx-forward:$COMMIT_SHA'
+  - '--region'
+  - 'us-central1'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
+
+# Deploy Multiplayer Boardroom to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'run'
+  - 'deploy'
+  - 'edusimlabs-boardroom'
+  - '--image'
+  - 'gcr.io/$PROJECT_ID/edusimlabs-boardroom:$COMMIT_SHA'
+  - '--region'
+  - 'us-central1'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
+
+# Deploy FICC Trademaster Pro to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'run'
+  - 'deploy'
+  - 'edusimlabs-trademaster'
+  - '--image'
+  - 'gcr.io/$PROJECT_ID/edusimlabs-trademaster:$COMMIT_SHA'
+  - '--region'
+  - 'us-central1'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
+
 images:
-- 'gcr.io/$PROJECT_ID/edusimlabs:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/edusimlabs-main:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/edusimlabs-fx-forward:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/edusimlabs-boardroom:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/edusimlabs-trademaster:$COMMIT_SHA'
