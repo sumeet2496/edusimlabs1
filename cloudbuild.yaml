@@ -6,9 +6,7 @@ steps:
   - '--path'
   - 'main'
   - '--builder'
-  - 'paketobuildpacks/builder:base'
-  - '--env'
-  - 'BP_NODE_RUN_SCRIPTS=build'
+  - 'gcr.io/buildpacks/builder:v1'
   - 'gcr.io/$PROJECT_ID/edusimlabs-main:$COMMIT_SHA'
 
 # Build FX Forward Terminal
@@ -18,9 +16,7 @@ steps:
   - '--path'
   - 'fx-forward-terminal'
   - '--builder'
-  - 'paketobuildpacks/builder:base'
-  - '--env'
-  - 'BP_NODE_RUN_SCRIPTS=build'
+  - 'gcr.io/buildpacks/builder:v1'
   - 'gcr.io/$PROJECT_ID/edusimlabs-fx-forward:$COMMIT_SHA'
 
 # Build Multiplayer Boardroom
@@ -30,9 +26,7 @@ steps:
   - '--path'
   - 'multiplayer-boardroom'
   - '--builder'
-  - 'paketobuildpacks/builder:base'
-  - '--env'
-  - 'BP_NODE_RUN_SCRIPTS=build'
+  - 'gcr.io/buildpacks/builder:v1'
   - 'gcr.io/$PROJECT_ID/edusimlabs-boardroom:$COMMIT_SHA'
 
 # Build FICC Trademaster Pro
@@ -42,9 +36,7 @@ steps:
   - '--path'
   - 'ficc-trademaster-pro'
   - '--builder'
-  - 'paketobuildpacks/builder:base'
-  - '--env'
-  - 'BP_NODE_RUN_SCRIPTS=build'
+  - 'gcr.io/buildpacks/builder:v1'
   - 'gcr.io/$PROJECT_ID/edusimlabs-trademaster:$COMMIT_SHA'
 
 # Deploy main website to Cloud Run
