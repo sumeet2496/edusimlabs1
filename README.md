@@ -34,18 +34,42 @@ The project is configured for automated deployment to Google Cloud Run using Clo
 - Cloud Run API enabled
 - Container Registry API enabled
 
-### Deployment
+### Setting Up the Build Trigger
 
-1. Connect your GitHub repository to Google Cloud Build
-2. Create a build trigger for the `main` branch
-3. Set the build configuration to use `cloudbuild.yaml`
-4. Push to `main` branch to trigger automatic deployment
+1. **Connect Repository**:
+   - In Google Cloud Build Console, connect your GitHub repository `sumeet2496/edusimlabs`
 
-Each app will be deployed as a separate Cloud Run service:
-- `edusimlabs-main`
-- `edusimlabs-fx-forward`
-- `edusimlabs-boardroom`
-- `edusimlabs-trademaster`
+2. **Create Trigger**:
+   - **Name**: EduSimLabs Deploy
+   - **Source**: GitHub (select your repo)
+   - **Branch**: `^main$` (builds on pushes to main)
+   - **Build Configuration**: Cloud Build configuration file (yaml or json)
+   - **Cloud Build configuration file location**: `/cloudbuild.yaml` (default)
+   - **Save**
+
+3. **Trigger Build**:
+   - Push to `main` branch or click "Run" in the console
+
+### Troubleshooting
+
+**Error: "invalid app path 'miain'"**
+- This means the trigger is set to "Buildpack" mode with incorrect app path
+- Change the build configuration to "Cloud Build configuration file" as described above
+- Ensure the branch is set to `main`, not a specific commit
+
+**Build succeeds but deployment fails**
+- Check that your Google Cloud project has the required permissions
+- Ensure the service account has Cloud Run Admin role
+
+### Services Deployed
+
+After successful build, these Cloud Run services will be available:
+- `edusimlabs-main`: Main website
+- `edusimlabs-fx-forward`: FX Forward Terminal
+- `edusimlabs-boardroom`: Multiplayer Boardroom
+- `edusimlabs-trademaster`: FICC Trademaster Pro
+
+Each service will have a public URL for access.
 
 ### Manual Build
 
