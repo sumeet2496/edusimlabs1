@@ -27,6 +27,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Simulations', href: 'simulations' },
   { label: 'Capabilities', href: 'capabilities' },
   { label: 'Enterprise', href: 'enterprise' },
+  { label: 'Contact', href: 'contact' },
 ];
 
 const createSims = (titles: string[]) => titles.map(t => ({
@@ -47,19 +48,19 @@ export const SIMULATION_CATEGORIES: SimulationCategory[] = [
         id: 'fx-forward-terminal',
         title: 'FX Forward Terminal Simulator',
         description: 'Master FX forward hedging, margin utilization, and corporate mandates in this institutional bank terminal simulator.',
-        internalRoute: '/sim/fx-forward'
+        internalRoute: '/fx-forward'
       },
       {
         id: 'multiplayer-boardroom',
         title: 'Multiplayer Boardroom - Global Capital',
         description: 'Maximize NPV in a deterministic global market. Compete against peers in this strategic capital allocation simulation.',
-        internalRoute: '/sim/boardroom'
+        internalRoute: '/boardroom'
       },
       {
         id: 'ficc-trademaster-pro',
         title: 'FICC Trademaster Pro',
         description: 'Navigate liquid markets, manage RFQs, and maintain desk P&L in this high-fidelity FICC trading terminal.',
-        internalRoute: '/sim/ficc-trademaster'
+        internalRoute: '/ficc-trademaster'
       }
     ]
   },

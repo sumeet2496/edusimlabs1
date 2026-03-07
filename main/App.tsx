@@ -194,9 +194,9 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
         {/* Simulation Routes */}
-        <Route path="/sim/fx-forward" element={<FXForwardApp />} />
-        <Route path="/sim/boardroom" element={<BoardroomApp />} />
-        <Route path="/sim/ficc-trademaster" element={<FICCTrademasterApp />} />
+        <Route path="/fx-forward" element={<FXForwardApp />} />
+        <Route path="/boardroom" element={<BoardroomApp />} />
+        <Route path="/ficc-trademaster" element={<FICCTrademasterApp />} />
 
         {/* Main Site Routes */}
         <Route path="*" element={<MainSite />} />
