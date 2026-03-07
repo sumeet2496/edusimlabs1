@@ -1,0 +1,11 @@
+.gcloudignore
+.git
+.gitignore
+node_modules
+dist
+.vite
+copy-of-fx-forward-terminal---simulator (1)
+copy-of-multiplayer-boardroom_-global-capital
+ficc-trademaster-pro-architecture-&-sim (1)
+main/node_modules
+main/dist
