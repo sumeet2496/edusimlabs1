@@ -11,17 +11,26 @@ A suite of educational simulation tools for finance and trading.
 
 ## Local Development
 
-Run all apps locally:
+Run all apps locally in development mode behind a single proxy:
 
 ```bash
-./start-all.sh
+# from the repository root
+npm install            # only needed once to install proxy deps
+./run.sh               # starts each app and a proxy on port 8080
 ```
 
-This starts each app on different ports:
-- Main: http://localhost:5173
-- FX Forward: http://localhost:5174
-- Boardroom: http://localhost:5175
-- Trademaster: http://localhost:5176
+Once the script has finished booting you can visit the consolidated site at `http://localhost:8080`.
+Each simulation is mounted under a path so the main page and URLs stay consistent
+with production:
+
+- `/` → main website (port 3000)
+- `/fx-forward-terminal` → FX Forward Terminal (port 3001)
+- `/multiplayer-boardroom` → Multiplayer Boardroom (port 3002)
+- `/ficc-trademaster-pro` → FICC Trademaster Pro (port 3003)
+
+You can still start an individual app by `cd`‑ing into its folder and running
+`npm install && npm run dev`; the port numbers above are defined in each app's
+`vite.config.ts`.
 
 ## Deployment to Google Cloud
 

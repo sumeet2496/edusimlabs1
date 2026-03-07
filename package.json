@@ -1,0 +1,15 @@
+{
+  "name": "edusimlabs-root",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Root workspace for EduSimLabs development proxy",
+  "scripts": {
+    "start:proxy": "node dev-proxy.js",
+    "start:all": "bash run-all.sh"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy": "^1.18.1",
+    "http-proxy-middleware": "^2.0.6"
+  }
+}
