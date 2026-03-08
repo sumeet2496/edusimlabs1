@@ -7,9 +7,9 @@ export default defineConfig(({ mode }) => {
     return {
       server: {
         port: 3003,
+        host: '0.0.0.0',
       },
-      base: '/ficc-trademaster-pro/',        host: '0.0.0.0',
-      },
+      base: '/ficc-trademaster-pro/',
       plugins: [react()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),

@@ -7,9 +7,9 @@ export default defineConfig(({ mode }) => {
     return {
       server: {
         port: 3002,
+        host: '0.0.0.0',
       },
-      base: '/multiplayer-boardroom/',        host: '0.0.0.0',
-      },
+      base: '/multiplayer-boardroom/',
       plugins: [react()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
